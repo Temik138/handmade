@@ -1,7 +1,7 @@
 <template>
   <nav class="navigation-bar">
     <a href="/" class="logo">DigitalStore</a>
-    <a href="" class="catalog">каталог</a>
+    <a href="/catalog" class="catalog">каталог</a>
     <a href="" class="cart">корзина</a>
     <a href="" class="catalog">вход</a>
     <a href="" class="login">регистрация</a>
@@ -19,13 +19,15 @@ export default {
   display: flex;
   min-width: 100%;
   background-color: #884535;
-  color: white;
+  
 }
 
 .logo {
   font-family: "Jersey 25";
   font-size: 48px;
   margin: 30px 0 0 150px;
+  color: white;
+  text-decoration: none;
 }
 
 .catalog {
@@ -33,6 +35,8 @@ export default {
   font-family: "Montserrat";
   font-size: 26px;
   font-weight: 250;
+  color: white;
+  text-decoration: none;
 }
 
 .cart {
@@ -40,6 +44,8 @@ export default {
   font-family: "Montserrat";
   font-size: 26px;
   font-weight: 250;
+  color: white;
+  text-decoration: none;
 }
 
 .login {
@@ -47,5 +53,7 @@ export default {
   font-family: "Montserrat";
   font-size: 26px;
   font-weight: 250;
+  color: white;
+  text-decoration: none;
 }
 </style>

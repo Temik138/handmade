@@ -1,28 +1,26 @@
-import '../css/app.css';
-import './bootstrap';
-import { createInertiaApp } from '@inertiajs/inertia-vue3';
-import { createApp, h } from 'vue';
-import { Link } from '@inertiajs/vue3'; // Импортируем Link вместо router-link
-
-// Импорт компонентов
-import AppHeader from './Pages/Header.vue';
-import AppMain from './Pages/Main.vue';
-import AppFooter from './Pages/Footer.vue';
+// resources/js/app.js
+import { createApp, h } from 'vue'
+import { createInertiaApp } from '@inertiajs/vue3'
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 
 createInertiaApp({
-  resolve: name => import(`./Pages/${name}.vue`),
+  resolve: (name) => {
+    // Проверяем доступные файлы
+    const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+    console.log('Available pages:', Object.keys(pages))
+    
+    // Явно проверяем существование файла
+    const pagePath = `./Pages/${name}.vue`
+    if (!pages[pagePath]) {
+      console.error(`Page not found: ${pagePath}`)
+      throw new Error(`Page ${name} not found`)
+    }
+    
+    return pages[pagePath]
+  },
   setup({ el, App, props, plugin }) {
-    const app = createApp({
-      render: () => h(App, props)
-    });
-    
-    // Регистрируем компоненты глобально
-    app.component('AppHeader', AppHeader);
-    app.component('AppMain', AppMain);
-    app.component('AppFooter', AppFooter);
-    app.component('Link', Link); // Регистрируем Link для использования вместо router-link
-    
-    app.use(plugin);
-    app.mount(el);
+    return createApp({ render: () => h(App, props) })
+      .use(plugin)
+      .mount(el)
   }
-});
+})

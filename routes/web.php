@@ -4,11 +4,18 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\ProductController;
+
 
 // Главная страница — твоя кастомная Home.vue
 Route::get('/', function () {
 return Inertia::render('Home');
 });
+
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+
+
+Route::get('/catalog', [ProductController::class, 'index'])->name('Catalog');
 // Страница dashboard — доступна только авторизованным и подтверждённым
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

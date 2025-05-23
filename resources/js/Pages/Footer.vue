@@ -25,6 +25,8 @@ export default {
   font-family: "Jersey 25";
   font-size: 48px;
   margin: 0 0 0 150px;
+  color: white;
+  text-decoration: none;
 }
 
 .email {
@@ -32,6 +34,8 @@ export default {
   font-family: "Montserrat";
   font-size: 26px;
   font-weight: 250;
+  color: white;
+  text-decoration: none;
 }
 
 .telegramm {
@@ -39,5 +43,7 @@ export default {
   font-family: "Montserrat";
   font-size: 26px;
   font-weight: 250;
+  color: white;
+  text-decoration: none;
 }
 </style>

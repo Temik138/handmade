@@ -1,15 +1,15 @@
 <template>
   <section class="main-section">
     <div class="slider" @click="handleSliderClick">
-      <img class="slider-img" src="images/banner1.png" />
-      <img class="slider-img" src="images/banner2.png" />
-      <img class="slider-img" src="images/banner3.png" />
+      <img class="slider-img" src="/images/banner1.png" />
+      <img class="slider-img" src="/images/banner2.png" />
+      <img class="slider-img" src="/images/banner3.png" />
     </div>
     <div class="popular">ПОПУЛЯРНЫЕ ТОВАРЫ</div>
     <div class="product">
       <div class="product1">
         <div class="photo">
-          <img src="/images/kursreact.webp" style="border-radius: 3%;">
+          <img src="/images/kursreact.webp" style="border-radius: 3%; height: 330px;">
           <div class="title">Курс по реакту</div>
           <div class="price">800р</div>
         </div>
@@ -89,7 +89,7 @@ export default {
   background-color: #884535;
   color: white;
   font-family: "Mostserrat";
-  width: 1890px;
+  width: 1880px;
   height: 1500px;
 }
 
@@ -144,7 +144,7 @@ export default {
 }
 
 .slider {
-  width: 1897px;
+  width: 1881px;
   height: 580px;
   position: relative;
   overflow: hidden;
